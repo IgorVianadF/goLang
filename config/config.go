@@ -1,6 +1,8 @@
 package config
 
 import (
+	"fmt"
+
 	"gorm.io/gorm"
 )
 
@@ -10,7 +12,18 @@ var (
 )
 
 func Init() error {
+	var err error
+
+	db, err = InitializePostgres()
+	if err != nil {
+		return fmt.Errorf("Error at the initialization of the database %v", err)
+	}
+
 	return nil
+}
+
+func GetDB() *gorm.DB {
+	return db
 }
 
 func GetLogger(p string) *Logger {

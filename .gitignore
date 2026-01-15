@@ -1,1 +1,12 @@
 go.sum
+.env
+*.exe
+*.dll
+*.so
+*.dylib
+
+*.test
+
+*.out
+
+/db
